@@ -4,7 +4,7 @@ Parameters:
     Default: "askulkarni2"
   RepositoryName:
     Type: String
-    Default: "ab3-demo-repo"
+    Default: "eks-blueprints-multi-env-demo-rep"
   OIDCProviderArn:
     Description: Arn for the GitHub OIDC Provider.
     Default: ""
