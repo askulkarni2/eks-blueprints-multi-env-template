@@ -42,7 +42,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
  
       - name: Terraform Init
-        run: terraform init -backend-config="bucket=eks-blueprints-multi-env-demo-repo-${{ github.event.inputs.environment }}" -backend-config="region=us-east-2"
+        run: terraform init -backend-config="bucket=eks-blueprints-multi-env-demo-repo-${{ github.event.inputs.environment }}" -backend-config="region=us-east-2" -backend-config="key=${{ github.event.inputs.environment }}"
 
       - name: Terraform Format
         run: terraform fmt -check
