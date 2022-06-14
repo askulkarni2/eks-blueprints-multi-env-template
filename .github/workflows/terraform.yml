@@ -1,10 +1,15 @@
 name: 'Terraform'
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Where to deploy
+        options: 
+        - dev
+        - preprod
+        - prod
   
 concurrency: production
 
@@ -13,6 +18,7 @@ permissions:
 
 jobs:
   deploy:
+    environment: dev
     name: Run Deployment
     runs-on: ubuntu-latest
 
@@ -40,6 +46,9 @@ jobs:
 
       - name: Terraform Format
         run: terraform fmt -check
+      
+      - name: Terraform Plan
+        run: terraform plan
 
       #- name: Terraform Apply
       #  if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
