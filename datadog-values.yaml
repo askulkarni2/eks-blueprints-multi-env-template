@@ -1,0 +1,3 @@
+datadog:
+  apiKey: ${apiKey}
+registry: public.ecr.aws/datadog
