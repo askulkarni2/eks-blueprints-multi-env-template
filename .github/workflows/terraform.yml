@@ -50,5 +50,5 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -var="datadog_api_key=${{ secrets.DATADOG_API_KEY }}" -var="eks_cluster_domain=${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev" -var="acm_certificate_domain=*.${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev"
 
-      #- name: Terraform Apply
-      #  run: terraform apply -auto-approve -input=false -var="datadog_api_key=${{ secrets.DATADOG_API_KEY }}" -var="eks_cluster_domain=${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev" -var="acm_certificate_domain=*.${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev"
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false -var="datadog_api_key=${{ secrets.DATADOG_API_KEY }}" -var="eks_cluster_domain=${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev" -var="acm_certificate_domain=*.${{ github.event.inputs.environment }}.kuapoorv.people.aws.dev"
