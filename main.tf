@@ -44,7 +44,7 @@ data "aws_eks_cluster" "eks_cluster" {
 }
 
 locals {
-  name   = basename(path.cwd)
+  name   = "multi-env"
   region = "us-east-2"
 
   vpc_cidr = "10.0.0.0/16"
